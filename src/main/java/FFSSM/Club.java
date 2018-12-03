@@ -17,8 +17,6 @@ public class Club {
 
     public String telephone;
     
-    public ArrayList<Plongee> listeDesPlongeeFalse = new ArrayList<>();
-    
     public ArrayList<Plongee> listeDesPlongeeOrganise= new ArrayList<>();
 
     public Club(Moniteur président, String nom, String telephone) {
@@ -28,18 +26,22 @@ public class Club {
     }
 
     public ArrayList<Plongee> plongeesNonConformes() {
-         return listeDesPlongeeFalse;
-    }
-    
-    public void ajouterPlongerFalse(){
+        ArrayList<Plongee> listeDesPlongeeFalse = new ArrayList<>();
         for(Plongee p : listeDesPlongeeOrganise){
             if(!p.estConforme()){
                 listeDesPlongeeFalse.add(p);
-            };
+            }
         }
-    
+        
+        return listeDesPlongeeFalse;
     }
+    
+    /*
+    public void ajouterPlongerFalse(){
+        
 
+    }
+*/
     public void organisePlongee(Plongee p) {
          listeDesPlongeeOrganise.add(p);
     }

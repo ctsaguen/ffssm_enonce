@@ -5,7 +5,6 @@
  */
 package FFSSM;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -28,7 +27,6 @@ public class ClubTest {
     @Test
     public void testAjouterPlongerFalse() {
         System.out.println("ajouterPlongerFalse");
-        club.ajouterPlongerFalse();
     }
 
     /**
