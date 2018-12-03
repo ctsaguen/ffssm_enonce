@@ -3,9 +3,8 @@
  */
 package FFSSM;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Plongee {
 
@@ -18,6 +17,8 @@ public class Plongee {
     public int profondeur;
 
     public int duree;
+    
+    public ArrayList<Plongeur> listeParticipant = new ArrayList<>();
 
     public Plongee(Site lieu, Moniteur chefDePalanquee, Calendar date, int profondeur, int duree) {
         this.lieu = lieu;
@@ -28,8 +29,7 @@ public class Plongee {
     }
 
     public void ajouteParticipant(Plongeur participant) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+         listeParticipant.add(participant);
     }
 
     public Calendar getDate() {
@@ -37,8 +37,13 @@ public class Plongee {
     }
 
     public boolean estConforme() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         boolean i = true ; 
+         for(Plongeur p : listeParticipant){
+            if(p.getLicenceActuel().estValide(date)){
+                i = p.getLicenceActuel().estValide(date);
+            }
+         }
+         return i ; 
     }
 
 }

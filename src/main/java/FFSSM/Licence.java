@@ -51,8 +51,13 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(Calendar d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        
+        if(delivrance.compareTo(d) > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

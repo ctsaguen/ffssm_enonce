@@ -4,13 +4,12 @@
 package FFSSM;
 
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Moniteur extends Personne {
 
     public int numeroDiplome;
+    public ArrayList<Embauche> listeEmbauche = new ArrayList<Embauche>();
 
     public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, Calendar naissance, int numeroDiplome) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance);
@@ -18,18 +17,17 @@ public class Moniteur extends Personne {
     }
 
     public Club employeur() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         Embauche e = listeEmbauche.get(listeEmbauche.size()-1);
+         return e.getEmployeur();
     }
     
     public void nouvelleEmbauche(Club employeur, Calendar debutNouvelle) {   
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+         Embauche e = new Embauche(debutNouvelle, this, employeur);
+         listeEmbauche.add(e);
     }
 
-    public List<Embauche> emplois() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+    public ArrayList<Embauche> emplois() {
+         return listeEmbauche;
     }
 
 }
